@@ -18,4 +18,6 @@ def tuplets():
 
     return binome, trinome
 
-tuplets()
+if __name__ == "__main__":
+    binome_initial, trinome = tuplets()
+
