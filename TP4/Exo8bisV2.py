@@ -15,21 +15,20 @@ def dictio():
             "group": group
         })
 
-'''
-    binomes = {}
-    for i in range(0, len(etudiants) - 1, 2):  # Par pas de 2
-        if i + 1 < len(etudiants):
-            # Binôme normal (2 étudiants)
-            binomes[f"binome_{i // 2 + 1}"] = [etudiants[i], etudiants[i + 1]]
-        else:
-            # Trinôme (dernier groupe impair)
-            binomes[f"trinome_{i // 2 + 1}"] = [etudiants[i]]
-
-    # Affichage final
-    print("Les étudiants formants les binômes sont :")
-    for id_groupe, groupe in binomes.items():
-        for etu in groupe:
-            print(f"- L'étudiant {etu['name']} {etu['firstname']} du groupe {etu['group']}")
-'''
+    if nb_etudiant % 2 == 0:
+        binomes = []
+        for i in range(0, nb_etudiant, 2):
+            binome = (etudiant[i], etudiant[i + 1])
+            binomes.append(binome)
+            print(f"Le binôme {len(binomes)} est composé de {etudiant[i]['firstname']} {etudiant[i]['name']} et de {etudiant[i + 1]['firstname']} {etudiant[i + 1]['name']}")
+    else:
+        binomes = []
+        trinome = []
+        for i in range(0, nb_etudiant - 3, 2):
+            binome = (etudiant[i], etudiant[i + 1])
+            binomes.append(binome)
+            print(f"Le binôme {len(binomes)} est composé de {etudiant[i]['firstname']} {etudiant[i]['name']} et de {etudiant[i + 1]['firstname']} {etudiant[i + 1]['name']}")
+            trinome = (etudiant[-1],etudiant[-2], etudiant[-3])
+            print(f"Le trinôme {len(binome)} est composé de {etudiant[-1]['firstname']} {etudiant[-1]['name']}, de {etudiant[-2]['firstname']} {etudiant[-2]['name']} et de {etudiant[-3]['firstname']} {etudiant[-3]['name']}")
 
 dictio()
